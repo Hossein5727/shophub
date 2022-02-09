@@ -1,0 +1,52 @@
+.nav{
+    background-color: #FFEBC1 ;
+    height: 100px;
+    .nav_wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #000;
+        width: 100%;
+        height: 100%;
+        padding: 2rem 2.5rem;
+
+        .nav_logo{        
+            h1{
+                font-size: 28px;
+                letter-spacing: 1px;
+                cursor: pointer;
+            }
+        }
+
+        .nav_link{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            .linkItem{
+                color: #000;
+                font-size: 20px;
+                font-weight: 600;
+                letter-spacing: 0.7px;
+            }
+        
+            .active{
+                color: #FF730E;
+                font-size: 20px;
+                font-weight: 600;
+                letter-spacing: 0.7px;  
+            }
+        }
+
+        .shopCart{
+            cursor: pointer;
+        }
+    }
+
+    @media screen and (max-width:'768px') {
+        .na
+        .nav_link{
+            display: none;
+        }
+    }

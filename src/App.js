@@ -1,14 +1,22 @@
 import HomePage from './pages/HomePage'
 import Layout from './Layout/Layout'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import ShopPage from './pages/ShopPage';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ProductListProvider from './provider/ProductListProvider';
 
 function App() {
   return (
+    <ProductListProvider>
       <Layout>
-        <Routes> 
+        <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/shop" element={<ShopPage />} />
         </Routes>
+        <ToastContainer />
       </Layout>
+    </ProductListProvider>
   );
 }
 

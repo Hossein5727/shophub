@@ -19,6 +19,7 @@ function Landing() {
                     <img
                         src={welcomeImg}
                         alt='landing-shop'
+                        loading='lazy'
                     />
                     <div></div>
                     <h1>WELCOME TO SHOPHUP</h1>

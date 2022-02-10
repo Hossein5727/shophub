@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth !important;
+    scroll-behavior: smooth;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.4px;
 }
@@ -13,6 +13,8 @@ a{
 }
 
 body{
-    scroll-behavior: smooth !important;
+    scroll-behavior: smooth;
     overflow-x: hidden;
+    background: rgb(255,224,174);
+    background: radial-gradient(circle, rgba(255,224,174,1) 0%, rgba(254,218,129,1) 100%);    
 }

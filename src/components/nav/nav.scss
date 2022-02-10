@@ -1,5 +1,5 @@
 .nav{
-    background-color: #FFEBC1 ;
+    background-color: transparent ;
     height: 100px;
     .nav_wrapper{
         display: flex;
@@ -40,13 +40,68 @@
         }
 
         .shopCart{
-            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .shopIcon{
+                font-size: 36px;
+                cursor: pointer;
+            }
+        }
+
+        .menu{
+            display: none;
+        }
+        .close{
+            display: none;
         }
     }
 
     @media screen and (max-width:'768px') {
-        .na
-        .nav_link{
-            display: none;
+        .nav_wrapper{
+            .nav_link{
+                display: none;
+            }
+
+            .menu{
+                display: inline-block;
+                margin-left: 20px;
+                font-size: 35px;
+                cursor: pointer;
+            }
+            
+            .close{
+                display: inline-block;
+                margin-left: 20px;
+                font-size: 35px;
+                cursor: pointer;
+            }
+
+            .nav_linkResponsive{
+                position: absolute;
+                top: 100px;
+                right: 0px;
+                width: 200px;
+                height: 100%;
+                background-color: rgba(254,218,129,1);
+                color: #fff;
+                font-size: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+                z-index: 10;
+
+                .linkItem{
+                    font-size: 22px;
+
+                    &:last-child{
+                        margin-bottom: 210px;
+                    }
+                }
+            }
         }
     }
+}

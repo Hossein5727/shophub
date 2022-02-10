@@ -46,8 +46,8 @@ function ProductInfo() {
                     />
                 </div>
                 <div className='p_desc'>
-                    <h2>{productData.title}</h2>
-                    <p>{productData.description}</p>
+                    <h2 className='title'>{productData.title}</h2>
+                    <p className='description'>{productData.description}</p>
                     <p>Price: {productData.price}$</p>
                     <button>Add to ShoppingList <AddShoppingCartIcon /></button>
                 </div>

@@ -80,10 +80,29 @@
                 .p_desc{
                     gap:8px;
                     padding: 15px;
+                    overflow-x: hidden;
 
                     button{
                         width: 220px;
                         font-size: 18px;
+                    }
+
+                    .description{
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3; /* number of lines to show */
+                                line-clamp: 4; 
+                        -webkit-box-orient: vertical;
+                    }
+
+                    .title{
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3; /* number of lines to show */
+                                line-clamp: 4; 
+                        -webkit-box-orient: vertical;
                     }
                 }
                 font-size: 15px;

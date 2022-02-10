@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { getOneDataHtppServices } from '../../services/getOneDataHtppServices'
+import { CircularProgress } from '@mui/material';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Link, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
-
 import './productInfo.scss'
-import { CircularProgress } from '@mui/material';
+
 
 function ProductInfo() {
 
@@ -48,7 +49,7 @@ function ProductInfo() {
                     <h2>{productData.title}</h2>
                     <p>{productData.description}</p>
                     <p>Price: {productData.price}$</p>
-                    <button>Add to ShoppingList</button>
+                    <button>Add to ShoppingList <AddShoppingCartIcon /></button>
                 </div>
             </div>
         }

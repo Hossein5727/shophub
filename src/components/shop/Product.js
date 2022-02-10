@@ -5,7 +5,7 @@ import './product.scss'
 
 function Product({ item }) {
     return (
-        <div className='product'>
+        <div className='product' key={item.id}>
             <div className='productHeader'>
                 <FullscreenIcon
                     className='productIcon'

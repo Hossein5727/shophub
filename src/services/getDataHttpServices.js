@@ -1,5 +1,5 @@
 import { http } from "./httpServices";
 
-export function getDataHttpServices() {
-    return http.get("/products")
+export function getDataHttpServices(url = "") {
+    return http.get(`/products/${url}`)
 }

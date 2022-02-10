@@ -10,11 +10,11 @@ import './shop.scss'
 
 const options = [
     { value: '', label: 'Default' },
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
+    { value: 'electronics', label: 'Electronics' },
+    { value: 'jewelery', label: 'Jewelery' },
+    { value: "men's clothing", label: 'Mens clothing' },
+    { value: "women's clothing", label: 'Womens clothing' }
 ]
-
 
 function Shop() {
 
@@ -26,12 +26,12 @@ function Shop() {
 
     useEffect(() => {
         getData()
-    }, [])
+    }, [selectValue])
 
     const getData = async () => {
         setIsLoading(true)
         try {
-            const { data } = await getDataHttpServices()
+            const { data } = await getDataHttpServices(selectValue)
             getProduct(data)
             setIsLoading(false)
         } catch (error) {
@@ -41,7 +41,12 @@ function Shop() {
     }
 
     const changeHandler = (e) => {
-        setSelectValue(e)
+        if (e.value === '') {
+            setSelectValue('')
+        }
+        else {
+            setSelectValue(`category/${e.value}`)
+        }
     }
 
     const renderData = () => {
@@ -56,10 +61,11 @@ function Shop() {
 
         if (prodocts && prodocts.length > 0) {
             value = <div className='products'>
-                {prodocts && prodocts.slice(0, productNumber).map(item => (
+                {prodocts.slice(0, productNumber).map(item => (
                     <>
                         <Product
                             item={item}
+                            key={item.id}
                         />
                     </>
                 ))}
@@ -82,8 +88,7 @@ function Shop() {
                     <h1>Shop</h1>
                     <ReactSelect
                         options={options}
-                        isLoading
-                        value={selectValue}
+                        // value={selectValue}
                         onChange={changeHandler}
                     />
                 </div>

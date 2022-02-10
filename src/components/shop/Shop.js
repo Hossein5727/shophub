@@ -7,6 +7,8 @@ import Product from './Product';
 import { toast } from 'react-toastify';
 import shopHeader from '../../assets/img/orange-back.jpg'
 import './shop.scss'
+import { Link, Route, Routes } from 'react-router-dom';
+import ProductInfo from '../productInfo/ProductInfo';
 
 const options = [
     { value: '', label: 'Default' },
@@ -36,7 +38,7 @@ function Shop() {
             setIsLoading(false)
         } catch (error) {
             setIsLoading(false)
-            toast(error.message)
+            toast.error(error.message)
         }
     }
 
@@ -86,17 +88,23 @@ function Shop() {
                 />
                 <div className='detail_header'>
                     <h1>Shop</h1>
-                    <ReactSelect
-                        options={options}
-                        // value={selectValue}
-                        onChange={changeHandler}
-                    />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                        <p>Sort by category</p>
+                        <ReactSelect
+                            options={options}
+                            // value={selectValue}
+                            onChange={changeHandler}
+                        />
+                    </div>
                 </div>
             </div>
             {renderData()}
             {productNumber !== prodocts.length && (
                 <button onClick={() => setProductNumber(p => p + 5)} className='btn_loadMore'>Load More...</button>
             )}
+            <Routes>
+                <Route path="product-info/:id" element={<ProductInfo />} />
+            </Routes>
         </div>
     )
 }

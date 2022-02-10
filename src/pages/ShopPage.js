@@ -4,7 +4,7 @@ import Shop from '../components/shop/Shop'
 function ShopPage() {
     return (
         <div>
-            <Shop />
+            <Shop />    
         </div>
     )
 }

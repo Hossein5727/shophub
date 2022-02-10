@@ -2,14 +2,17 @@ import React from 'react'
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './product.scss'
+import { Link } from 'react-router-dom';
 
 function Product({ item }) {
     return (
         <div className='product' key={item.id}>
             <div className='productHeader'>
-                <FullscreenIcon
-                    className='productIcon'
-                />
+                <Link to={`/shop/product-info/${item.id}`}>
+                    <FullscreenIcon
+                        className='productIcon'
+                    />
+                </Link>
                 <AddShoppingCartIcon
                     className='productIcon'
                 />

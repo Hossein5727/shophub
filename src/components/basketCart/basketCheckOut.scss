@@ -88,6 +88,10 @@
 
         .basketTotalPrice{
             color: #2D3B52;
+            
+            @media screen and (max-width:768px) {
+                font-size: 21px;
+            }
         }
 
         .basketTotalCheckOut{
@@ -100,6 +104,12 @@
             border-radius: 25px;
             background-color: #F14A90;
             color: #fff;
+
+            @media screen and (max-width:768px) {
+                width: 150px;
+                height: 40px;
+                font-size: 19px;
+            }
         }
     }
 }

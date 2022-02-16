@@ -4,10 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.scss'
 import 'animate.css';
+import BasketCartProvider from './provider/BasketCartProvider';
+import ProductListProvider from './provider/ProductListProvider';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <BasketCartProvider>
+    <ProductListProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ProductListProvider>
+  </BasketCartProvider>,
   document.getElementById('root')
 );

@@ -64,12 +64,10 @@ function Shop() {
         if (prodocts && prodocts.length > 0) {
             value = <div className='products'>
                 {prodocts.slice(0, productNumber).map(item => (
-                    <>
                         <Product
                             item={item}
                             key={item.id}
                         />
-                    </>
                 ))}
             </div>
         }
@@ -92,7 +90,6 @@ function Shop() {
                         <p>Sort by category</p>
                         <ReactSelect
                             options={options}
-                            // value={selectValue}
                             onChange={changeHandler}
                         />
                     </div>

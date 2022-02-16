@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { getOneDataHtppServices } from '../../services/getOneDataHtppServices'
 import { CircularProgress } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import './productInfo.scss'
+import { useBasketCardActions, useBasketCart } from '../../provider/BasketCartProvider';
 
 
 function ProductInfo() {
@@ -12,6 +13,8 @@ function ProductInfo() {
     const [productData, setProductData] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const params = useParams()
+    const basket = useBasketCart()
+    const { addToBasketCart } = useBasketCardActions()
 
     useEffect(() => {
         getData()
@@ -49,7 +52,9 @@ function ProductInfo() {
                     <h2 className='title'>{productData.title}</h2>
                     <p className='description'>{productData.description}</p>
                     <p>Price: {productData.price}$</p>
-                    <button>Add to ShoppingList <AddShoppingCartIcon /></button>
+                    {!basket.find(basket => basket.id === productData.id) && (
+                        <button onClick={() => addToBasketCart(productData)}>Add to ShoppingList <AddShoppingCartIcon /></button>
+                    )}
                 </div>
             </div>
         }

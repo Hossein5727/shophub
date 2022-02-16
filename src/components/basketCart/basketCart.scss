@@ -1,0 +1,19 @@
+.basketCart{
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    .basketWrapper{
+        flex: 2.5;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .basketCheckOut{
+        flex: 1;
+    }
+}

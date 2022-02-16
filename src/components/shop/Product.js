@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import { Link } from 'react-router-dom';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useBasketCardActions, useBasketCart } from '../../provider/BasketCartProvider';
 import './product.scss'
-import { Link } from 'react-router-dom';
 
 function Product({ item }) {
+
+    const shopRef = useRef()
+    const basket = useBasketCart()
+    const { addToBasketCart, deleteToBasketCart } = useBasketCardActions()
+
+    const clickHandler = () => {
+        addToBasketCart(item)
+    }
+
+    const deleteHandler = () => {
+        deleteToBasketCart(item)
+    }
+
     return (
         <div className='product' key={item.id}>
             <div className='productHeader'>
@@ -13,9 +28,20 @@ function Product({ item }) {
                         className='productIcon'
                     />
                 </Link>
-                <AddShoppingCartIcon
-                    className='productIcon'
-                />
+                {basket.find(basket => basket.id === item.id) ?
+                    (
+                        <DeleteIcon
+                            className='productIcon'
+                            onClick={deleteHandler}
+                        />
+                    )
+                    : (
+                        <AddShoppingCartIcon
+                            className='productIcon'
+                            onClick={clickHandler}
+                            ref={shopRef}
+                        />
+                    )}
             </div>
             <div className='productContent'>
                 <img

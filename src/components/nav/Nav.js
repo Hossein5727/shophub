@@ -1,15 +1,23 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { linkDataNav } from '../../data/linkDataNav'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { Badge } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import './nav.scss'
+import { useBasketCart, useNumberProduct } from '../../provider/BasketCartProvider';
+import { round10 } from '../../utils/roundNumber';
 
 function Nav() {
 
     const [toggleMenu, setToggleMenu] = useState(false)
+    const numberProduct = useNumberProduct()
+    const basketCartData = useBasketCart()
+
+
+    const totalPrice = basketCartData.reduce((acc, item) => acc + item.qty * round10(item.price, -1), 0);
+
 
     return (
         <nav className='nav'>
@@ -23,8 +31,11 @@ function Nav() {
                     ))}
                 </div>
                 <div className='shopCart'>
-                    <Badge badgeContent={0} color="warning" showZero>
-                        <ShoppingBagIcon className='shopIcon' />
+                    <h3>${totalPrice}</h3>
+                    <Badge badgeContent={numberProduct} color="warning" showZero>
+                        <Link to="/basket">
+                            <ShoppingBagIcon className='shopIcon' />
+                        </Link>
                     </Badge>
                     {!toggleMenu
                         ?

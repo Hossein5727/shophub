@@ -1,6 +1,7 @@
 .nav{
     background-color: transparent ;
     height: 100px;
+    
     .nav_wrapper{
         display: flex;
         justify-content: space-between;
@@ -92,7 +93,7 @@
                 align-items: center;
                 flex-direction: column;
                 gap: 20px;
-                z-index: 10;
+                z-index: 20;
 
                 .linkItem{
                     font-size: 22px;

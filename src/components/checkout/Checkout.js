@@ -4,8 +4,11 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import { QrCodeSharp } from '@mui/icons-material'
+import { toast } from 'react-toastify'
 import 'react-credit-cards/es/styles-compiled.css';
 import './checkout.scss'
+import { useBasketCardActions } from '../../provider/BasketCartProvider';
+import { useNavigate } from 'react-router-dom';
 
 function Checkout() {
 
@@ -15,6 +18,10 @@ function Checkout() {
         name: '',
         number: '',
     })
+
+    const { deleteAllCarts } = useBasketCardActions()
+
+    let navigate = useNavigate()
 
     const inputData = [
         { id: 1, value: cartData.name, name: 'name', label: 'name', icon: <CreditCardIcon /> },
@@ -29,6 +36,9 @@ function Checkout() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        toast.success('Ok')
+        deleteAllCarts()
+        navigate('/')
     }
 
     return (

@@ -61,6 +61,10 @@ export const useBasketCardActions = () => {
         setNumber(num => num - 1)
     }
 
+    const deleteAllCarts = () => {
+        setBasket([])
+    }
+
     const incrementQty = (id) => {
         const clone = [...basket]
 
@@ -77,5 +81,5 @@ export const useBasketCardActions = () => {
         setBasket([...clone])
     }
 
-    return { addToBasketCart, deleteToBasketCart, incrementQty,decrementQty }
+    return { addToBasketCart, deleteToBasketCart, incrementQty, decrementQty,deleteAllCarts }
 };

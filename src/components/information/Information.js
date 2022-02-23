@@ -94,7 +94,7 @@ function Information() {
                             <option value={item.city}>{item.city}</option>
                         ))}
                     </select>
-                    <button type='submit'>Ok</button>
+                    <button type='submit' className='submitBtn'>Ok</button>
                 </div>
             </form >
         </div >

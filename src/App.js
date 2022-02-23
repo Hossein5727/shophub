@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './Layout/Layout'
-import { BasketCartPage, BLogPage, CheckoutPage, ContactPage, HomePage, ShopPage } from "./pages";
+import { BasketCartPage, BLogPage, CheckoutPage, ContactPage, HomePage, InformationPage, ShopPage } from "./pages";
 
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
         <Route path="/basket" element={<BasketCartPage />} />
         <Route path="/blog" element={<BLogPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/information" element={<InformationPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
       <ToastContainer />

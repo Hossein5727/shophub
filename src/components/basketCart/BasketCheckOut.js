@@ -2,13 +2,13 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useBasketCardActions, useBasketCart } from '../../provider/BasketCartProvider'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import './basketCheckOut.scss'
 import { round10 } from '../../utils/roundNumber';
+import dataIr from '../../data/ir.json'
+import './basketCheckOut.scss'
 
 function BasketCheckOut() {
 
     const basketCartData = useBasketCart()
-
     const { deleteToBasketCart } = useBasketCardActions()
 
 
@@ -50,7 +50,7 @@ function BasketCheckOut() {
                 <h4 className='basketTotalTitle'>Total</h4>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '15px' }}>
                     <h1 className='basketTotalPrice'>${totalPrice}</h1>
-                    <Link className='basketTotalCheckOut' to="/checkout">Checkout <ArrowForwardIcon /></Link>
+                    <Link className='basketTotalCheckOut' to="/information">Complete Your Info <ArrowForwardIcon /></Link>
                 </div>
             </div>
         </div>

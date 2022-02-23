@@ -20,10 +20,10 @@ function BasketCartInfo({ item }) {
                 <div className='manageQty'>
                     <button onClick={() => incrementQty(item.id)}>+</button>
                     <h3>x {item.qty}</h3>
-                    {item.qty >= 1 ? (
+                    {item.qty > 1 ? (
                         <button onClick={() => decrementQty(item)}>-</button>
                     ) : (
-                        <button style={{ background: 'red', color: '#fff', padding: '7px', width: '80px' }} onClick={() => deleteToBasketCart(item)}>delete</button>
+                        <button style={{ background: 'red', color: '#fff', padding: '9px ', width: '80px' }} onClick={() => deleteToBasketCart(item)}>delete</button>
                     )}
                 </div>
             </div>

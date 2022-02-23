@@ -88,6 +88,7 @@ function Information() {
                             />
                         </div>
                     ))}
+                    <h4 style={{ marginBottom: '10px' }}>Choose Your City</h4>
                     <select required className='selectBox'>
                         <option value={''}>Select</option>
                         {dataIr.map(item => (
